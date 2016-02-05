@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Main User</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+                <!--Logo-->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#otherNavBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">My Project Bank</a>
+            </div>
+                <!--Menu Items-->
+         <div class="collapse navbar-collapse" id="mainNavBar">
+                <ul class="nav navbar-nav navbar-right" id="welcome_wrapper">
+                    <li class="dropdown">
+                        <span class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Welcome, User  <span class="caret"></span></span>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <input type="text" class="form-control" placeholder="Search...">
+                </form>
+            </div>
+            <div class="collapse navbar-collapse" id="otherNavBar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Administration</a></li>
+                    <li><a href="#">Agriculture</a></li>
+                    <li><a href="#">Arts</a></li>
+                    <li><a href="#">Education</a></li>
+                    <li><a href="#">Engineering</a></li>
+                    <li><a href="#">Environmental Science</a></li>
+                    <li><a href="#">Health Science</a></li>
+                    <li><a href="#">Pharmacy</a></li>
+                    <li><a href="#">Science</a></li>
+                    <li><a href="#">Social Science</a></li>
+                    <li><a href="#">Law</a></li>
+                </ul>
+            </div>
+        </div>      
+    </nav>
+
+            <!--Main Content-->
+    <div class="container-fluid">
+        <div class="row col-md-12 row_spacer">
+            <div class="col-md-9" id="content_wrapper">
+                <div class="col-md-12"><h1>A row here</h1></div>
+                <div class="row">
+                    <div class="col-md-offset-1 col-md-3">
+                        <p class="text-right items_header_space"><strong>Featured Projects</strong></p>
+                    </div>
+                    <div class="text-right col-md-offset-2 col-md-3 sortby_wrapper">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="productorder">Sort by:</label>
+                                <select class="form-control" id="productorder">
+                                    <option>Sales</option>
+                                    <option>Purchases</option>
+                                    <option>Category</option>
+                                    <option>Price</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <div class="row row_spacer">
+                    <div class="col-md-4 featured_items">
+                        <img src="u45.png" class="img-responsive" />
+                        <p>Social Interaction on the Internet with respect to time</p>
+                        <p id="label">Social Sciences</p>
+                        <p id="price">N2500</p>
+                    </div>
+                     <div class="col-md-4 featured_items">
+                        <img src="u45.png" class="img-responsive" />
+                        <p>Social Interaction on the Internet with respect to time</p>
+                        <p id="label">Social Sciences</p>
+                        <p id="price">N2500</p>
+                    </div>
+                     <div class="col-md-4 featured_items">
+                        <img src="u45.png" class="img-responsive" />
+                        <p>Social Interaction on the Internet with respect to time</p>
+                        <p id="label">Social Sciences</p>
+                        <p id="price">N2500</p>
+                    </div>
+                </div>
+
+
+                <div class="row row_spacer">
+                    <div class="col-md-4 featured_items">
+                        <img src="u45.png" class="img-responsive" />
+                        <p>Social Interaction on the Internet with respect to time</p>
+                        <p id="label">Social Sciences</p>
+                        <p id="price">N2500</p>
+                    </div>
+                     <div class="col-md-4 featured_items">
+                        <img src="u45.png" class="img-responsive" />
+                        <p>Social Interaction on the Internet with respect to time</p>
+                        <p id="label">Social Sciences</p>
+                        <p id="price">N2500</p>
+                    </div>
+                     <div class="col-md-4 featured_items">
+                        <img src="u45.png" class="img-responsive" />
+                        <p>Social Interaction on the Internet with respect to time</p>
+                        <p id="label">Social Sciences</p>
+                        <p id="price">N2500</p>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="col-md-offset-1 col-md-3">
+                        <p class="text-right items_header_space"><strong>Featured Reports</strong></p>
+                    </div>
+                    <div class="text-right col-md-offset-2 col-md-3 sortby_wrapper">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="productorder">Sort by:</label>
+                                <select class="form-control" id="productorder">
+                                    <option>Sales</option>
+                                    <option>Purchases</option>
+                                    <option>Category</option>
+                                    <option>Price</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <div class="row row_spacer">
+                    <div class="col-md-4 featured_items">
+                        <img src="u45.png" class="img-responsive" />
+                        <p>Social Interaction on the Internet with respect to time</p>
+                        <p id="label">Social Sciences</p>
+                        <p id="price">N2500</p>
+                    </div>
+                     <div class="col-md-4 featured_items">
+                        <img src="u45.png" class="img-responsive" />
+                        <p>Social Interaction on the Internet with respect to time</p>
+                        <p id="label">Social Sciences</p>
+                        <p id="price">N2500</p>
+                    </div>
+                     <div class="col-md-4 featured_items">
+                        <img src="u45.png" class="img-responsive" />
+                        <p>Social Interaction on the Internet with respect to time</p>
+                        <p id="label">Social Sciences</p>
+                        <p id="price">N2500</p>
+                    </div>
+                </div>
+
+
+                <div class="row row_spacer">
+                    <div class="col-md-4 featured_items">
+                        <img src="u45.png" class="img-responsive" />
+                        <p>Social Interaction on the Internet with respect to time</p>
+                        <p id="label">Social Sciences</p>
+                        <p id="price">N2500</p>
+                    </div>
+                     <div class="col-md-4 featured_items">
+                        <img src="u45.png" class="img-responsive" />
+                        <p>Social Interaction on the Internet with respect to time</p>
+                        <p id="label">Social Sciences</p>
+                        <p id="price">N2500</p>
+                    </div>
+                     <div class="col-md-4 featured_items">
+                        <img src="u45.png" class="img-responsive" />
+                        <p>Social Interaction on the Internet with respect to time</p>
+                        <p id="label">Social Sciences</p>
+                        <p id="price">N2500</p>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="col-md-offset-1 col-md-3">
+                        <p class="text-right items_header_space"><strong>Featured Books</strong></p>
+                    </div>
+                    <div class="text-right col-md-offset-2 col-md-3 sortby_wrapper">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="productorder">Sort by:</label>
+                                <select class="form-control" id="productorder">
+                                    <option>Sales</option>
+                                    <option>Purchases</option>
+                                    <option>Category</option>
+                                    <option>Price</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+
+                <div class="row row_spacer">
+                    <div class="col-md-4 featured_items">
+                        <img src="u45.png" class="img-responsive" />
+                        <p>Social Interaction on the Internet with respect to time</p>
+                        <p id="label">Social Sciences</p>
+                        <p id="price">N2500</p>
+                    </div>
+                     <div class="col-md-4 featured_items">
+                        <img src="u45.png" class="img-responsive" />
+                        <p>Social Interaction on the Internet with respect to time</p>
+                        <p id="label">Social Sciences</p>
+                        <p id="price">N2500</p>
+                    </div>
+                     <div class="col-md-4 featured_items">
+                        <img src="u45.png" class="img-responsive" />
+                        <p>Social Interaction on the Internet with respect to time</p>
+                        <p id="label">Social Sciences</p>
+                        <p id="price">N2500</p>
+                    </div>
+                </div>
+
+
+                <div class="row row_spacer">
+                    <div class="col-md-4 featured_items">
+                        <img src="u45.png" class="img-responsive" />
+                        <p>Social Interaction on the Internet with respect to time</p>
+                        <p id="label">Social Sciences</p>
+                        <p id="price">N2500</p>
+                    </div>
+                     <div class="col-md-4 featured_items">
+                        <img src="u45.png" class="img-responsive" />
+                        <p>Social Interaction on the Internet with respect to time</p>
+                        <p id="label">Social Sciences</p>
+                        <p id="price">N2500</p>
+                    </div>
+                     <div class="col-md-4 featured_items">
+                        <img src="u45.png" class="img-responsive" />
+                        <p>Social Interaction on the Internet with respect to time</p>
+                        <p id="label">Social Sciences</p>
+                        <p id="price">N2500</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div>
+                    <img src="u300.png" class="img-responsive" />
+                </div>
+                <div>
+                    <img src="u304.png" class="img-responsive" />
+                </div>
+                <div>
+                    <img src="u304.png" class="img-responsive" />
+                </div>
+                <div>
+                    <img src="u302.png" class="img-responsive" />
+                </div>
+                <div>
+                    <img src="u300.png" class="img-responsive" />
+                </div>
+                <div>
+                    <img src="u304.png" class="img-responsive" />
+                </div>
+                <div>
+                    <img src="u302.png" class="img-responsive" />
+                </div>
+            </div>
+        </div> 
+          <div class="row col-md-12 pre_footer">
+                <div class="col-md-3">
+                    <h4>FIND A PROJECT/REPORT TOPIC</h4>
+                    <p>With our fast research tool, you can get the best project/report related to your discipline.</p>    
+                </div>
+                <div class="col-md-4">
+                    <h4>MAKE MONEY FROM YOUR PROJECTS/REPORTS</h4>
+                    <p>Start making money by selling your projects and reports to various individuals across the world.</p>    
+                </div>
+                <div class="col-md-3">
+                    <h4>FULL SECURITY GUARANTEED</h4>
+                    <p>Our platform guarantees full security of your projects and reports in order to prevent plagiarism.</p>    
+                </div>
+          </div>
+
+          <div class="row col-md-12"><hr/></div>
+
+        <footer>
+            <div class="row col-md-12">
+                <div class="col-md-8">
+                    <ul class="list-inline">
+                        <li><a href="#">Partnership</a></li>
+                        <li><a href="#">Advert Placement</a></li>
+                        <li><a href="#">Help</a></li>
+                        <li><a href="#">Terms and Agreement</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-md-offset-2">
+                    <ul class="list-inline">
+                        <li><img src="u290.png"  class="img-responsive" /></li>
+                        <li><img src="u292.png"  class="img-responsive"/></li>
+                        <li><img src="u294.png"  class="img-responsive" /></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <span>&copy;Copyright GraceIT Solutions Limited 2016. All Rights Reserved.</span>
+                </div>
+        </footer>
+
+    </div>
+</body>
+</html>

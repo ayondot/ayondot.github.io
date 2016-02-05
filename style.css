@@ -1,0 +1,97 @@
+body{
+	font-family: Cambria;
+	font-size: 1.6em;
+}
+
+#getting_started_wrapper{
+	margin-left: 10px;
+}
+
+#home_big_image{
+	min-height: 155px;
+}
+
+#content_wrapper{
+	width: 65%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.row_spacer{
+	margin-top: 20px;
+}
+
+.items_header_space{
+	margin-top: 5%;
+}
+
+.sortby_wrapper{
+	float: right;
+}
+
+.featured_items{
+	background-color: rgba(25, 59, 92, 0.43);
+	padding-top: 2px;
+	width: 32%;
+	min-width: 240px;
+	min-height: 270px;
+	margin-bottom: 15px;
+	margin-right: 1.3333%;
+	border-radius: 4px 4px 4px 4px;
+}
+
+.featured_items p{
+	color: #fff;
+}
+
+.featured_items p#label{
+	border-radius: 4px 4px 4px 4px;
+	color: #0c0f0f;
+	background-color: #add8e6;
+	padding-left: 3px;
+	width: 115px;
+}
+
+.featured_items p#price{
+	color: #053505;
+	float: right;
+}
+
+#activation_keys #activation_keyvalue{ font-size: 125%; }
+
+#activation_keys p{ margin-top: 45px; }
+
+@media (min-width: 768px) {
+	 #activation_keys .col-md-1{
+		margin-left: -50px;
+		margin-right: 40px;
+	}
+
+	#activation_keys .col-md-3{ width: 36%; }
+
+	#activation_keys #category_value{ margin-left: -70px; }
+
+	#activation_keys #activation_keyvalue{ 
+		margin-left: -30px; 
+		margin-right: 65px;
+	}
+
+	.pre_footer{ padding: 60px; }
+}
+
+.footer_spacer{
+	margin-top: 40px;	
+}
+
+hr{
+	border-color: #c6b8b8;
+}
+
+.pre_footer > div{
+	margin-left: 3.33%;
+	margin-right: 2%;
+}
+
+footer img{
+	width: 30px;
+}
