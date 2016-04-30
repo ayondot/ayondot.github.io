@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Wikipedia API</title>
+		<link href='https://fonts.googleapis.com/css?family=Josefin+Sans|Merienda' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type ="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+				  
+			h1{ 
+				width: 40%;
+				font-family: 'Josefin Sans', Helvetica, Arial, sans-serif; 
+				margin: 15px;
+				font-size: 3em;
+				color: #fff;
+				text-shadow: 3px 3px #000;
+			}
+
+			h3{ 
+				font-family: "Calibri", cursive;
+				font-weight: 100;
+				font-size: 1.4em;
+			 }
+
+			p{
+				font-family: 'Merienda', cursive; 
+				margin-bottom: 30px;
+				color: #000;
+			}	
+
+			a{
+				text-decoration: none;
+				color: #4a8117;
+			}
+			
+			#header{
+   				width: 100%; 
+   				background-color: #4e8192;
+   				display: flex;
+			}
+
+			#random{
+				color: #fff; 
+				font-family: 'Merienda', cursive; 
+				font-size: 0.8em;
+				background-color: #2980B9;
+				padding: 8px;
+				border-radius: 10px;
+				border-bottom: 3px solid #A23434;
+				position: relative;
+				top: -3px;
+			}
+
+			#mainSearch{
+				font-family: 'Merienda', cursive; 
+				height: 44px;
+				padding: 10px 15px;
+			    margin: 16px 10px 10px -6px;
+			    border-radius: 10px;
+			    color: #FFF;
+			    background-color: #62676B;
+			    border-bottom: 5px solid #2980B9;
+			    cursor: pointer;
+			    /* Animation */
+			    transition: all 0.1s;
+			    -webkit-transition: all 0.1s;
+			}
+
+			#mainSearch:hover, 
+			#mainSearch:focus {
+			    text-decoration: none;
+			    color: #fff;
+			}
+
+			#mainSearch:active {
+			    transform: translate(0px,5px);
+			    -webkit-transform: translate(0px,5px);
+			    border-bottom: 1px solid;
+			}
+
+			#searchbox{
+				height: 30px;
+				width: 50%;
+				font-size: 1.2em;
+				border: none;
+				border-bottom: 2px solid #4B3535;
+				padding-left: 10px;
+				border-radius: 8px 0 0 8px;
+			}
+
+			#searchdiv{
+				width: 60%;
+				margin-top: 10px;
+				margin-left: 25%;
+			}
+
+			#buttons{ display: inline; }
+
+			#article{
+				clear: both;
+				padding: 20px;
+			}
+
+			.intro, .noresult, #error{
+				width: 50%;
+				min-width: 250px;
+				margin: 10% auto;
+				line-height: 2.1em;		
+			}
+
+			.noresult{ color: blue; }
+			#error{ color: #b31d1d; }
+
+			#info{
+				width: 30px;
+				height: 30px;
+				background-color: #898989;
+				border-radius: 30px;
+			}
+
+			.fa{ padding: 7px 10px 10px 12px; }
+
+			#wiki{
+				font-size: 1.2em;
+			}
+
+			@media only screen and (max-width: 768px) {
+    			#header{ display: inline-block; }
+
+    			#searchdiv{ width: 80%; margin-left: 10%; }
+
+    			#searchbox{ width: 100%; border-radius: 8px; }
+    			
+    			#buttons{ display: block; margin-left: 14px; }	
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="header">
+			<h1>Wikipedia Viewer</h1>
+			<form id="searchdiv">
+				<input type="text" id="searchbox" /> 
+				<p id="buttons">
+					<button id="mainSearch">Search</button>
+					<a id="random" href="http://en.wikipedia.org/wiki/Special:Random">Random article</a>
+				</p>
+			</form>
+		</div>
+		<div id="article">
+			<p class="intro"><i class="fa fa-info" id="info"></i> This page hunts for information stored in Wikipedia's database. <span id="wiki"><a href="http://en.wikipedia.org/" target="_blank">Wikipedia</a></span> is a free encyclopedia, written collaboratively by the people who use it. You can click on the Random article button above to be taken to a random article on Wikipedia, or enter your search query in the search box above and see the results show up here. If it's on Wikipedia, you'll find it here.</p>
+		</div>
+		<script src="../jquery-1.10.2.min.js"></script>
+		<script>
+					/*$.ajax({
+			        type: "GET",
+			        url: "http://en.wikipedia.org//w/api.php?action=opensearch&format=json&search=" + searchvalue + "&limit=12",
+			        contentType: "application/json; charset=utf-8",
+			        async: false,
+			        dataType: "jsonp",
+			        success: function (data, textStatus, jqXHR) {  */
+
+			function processQuery(e){
+				e.preventDefault();
+				var searchvalue = $('#searchbox').val();
+				$('#article').html($('<p class="intro"></p>').text('LOADING . . . Please wait!')); 
+			    $.ajax({
+				    url: 'https://en.wikipedia.org/w/api.php?action=query&list=search&format=json&srsearch=' + searchvalue,
+				    dataType: 'jsonp',
+				    type: 'POST',
+				    headers: {
+				      'Api-User-Agent': 'Example/1.0'
+				    },
+    				success: function(data) {
+    					$('#article').html(''); 
+    					var datum = data.query.search;
+			            console.log(datum);          // ----- for testing incoming results
+			            if(!datum.length ){
+			            	$('#article').append('<p class="intro noresult">The page <span id="error">"' + searchvalue +'"</span> does not exist.\
+			            		You can <a href="https://en.wikipedia.org/wiki/Wikipedia:Articles_for_creation">ask for it to be created.</a><br />There were no results matching the query.</p>');
+			            }else{
+			            	for (var i in datum){
+			           			var summary = $('<a href="https://en.wikipedia.org/wiki/' + datum[i].title +'"></a>') 
+			           					.append($('<div></div>') 
+			           					.append($('<h3></h3>').text(datum[i].title))
+			           					.append($('<p></p>').html(datum[i].snippet)));
+			           		
+			           			$('#article').append(summary);
+			            	}
+			            }
+			          
+			        },
+			        error: function (errorMessage) {
+			        	$('article').html('<p id="error"> There appears to be an error, please try again!</p>');
+			        }
+		    	});
+
+			}
+
+		$(function(){
+			$('#searchbox').on('submit', processQuery);
+			$('#mainSearch').on('click', processQuery); 
+		})
+		</script>
+	</body>
+</html>
