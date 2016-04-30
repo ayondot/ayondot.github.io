@@ -1,2 +1,2 @@
-# ayondot gh-pages
-GitHub page for my projects.
+# Project Bank
+Testing out some ideas for an online bank of school projects.
