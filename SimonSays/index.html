@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Simon Says</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+	</head>
+	<body>
+		<div class="wrapper">
+      <div class="settings_panel">
+        <h2 class="level">Level: 1</h2>
+        <h2 class="score">Score: 0</h2>
+      </div>
+    	<div class="back">
+      	<div class="pad shape1">
+        	<audio preload="auto" class="sound1" data-pad="1">
+            <source src="sounds/sound_01.mp3" type="audio/mp3" />
+        	</audio>
+     		</div>
+
+      	<div class="pad shape2">
+        	<audio preload="auto" class="sound2" data-pad="2">
+          	<source src="sounds/sound_02.mp3" type="audio/mp3" />
+       		</audio>
+      	</div>
+
+      	<div class="pad shape3">
+        	<audio preload="auto" class="sound3" data-pad="3">
+         		<source src="sounds/sound_03.mp3" type="audio/mp3"/>
+        	</audio>
+      	</div>
+
+     		<div class="pad shape4">
+          <audio preload="auto" class="sound4" data-pad="4">
+          	<source src="sounds/sound_04.mp3" type="audio/mp3"/>
+        	</audio>
+     		</div>
+
+      	<div class="circle"><p>Simon Says</p></div>
+   		</div>
+
+   		<div class="difficulty settings_panel">
+        <ul>
+          <li>
+            <input type="radio" class="difOpt" name="difficulty" id="easy" value="2">
+            <label for="easy">Easy</label>
+          </li>
+          <li>
+            <input type="radio" class="difOpt" name="difficulty" value="1" checked>
+            <label for="normal">Normal</label>
+          </li>
+          <li>
+            <input type="radio" class="difOpt" name="difficulty" value="0.5">
+            <label for="hard">Hard</label>
+          </li>
+          <li>
+            <input type="radio" class="difOpt" name="difficulty" id="insane" value="0.25">
+            <label for="insane">Insane</label>
+          </li>
+        </ul>
+        <button class="start">start</button>
+    			
+   	  </div>
+		<script src="jquery.js"></script>
+		<script src="script.js"></script>
+	</body>
+</html>
