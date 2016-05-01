@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday</title>
+<link rel="stylesheet" type="text/css" href="app.css">
+<script src="jquery-1.10.2.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="app.js"></script>
+</head>
+<body>
+<section id="counter">1</section>
+<section id="slider_wrapper">
+	<audio src="song.mp3" autoplay loop></audio>
+	<div id="slide_back"><img src="images2.jpg" alt="slide1" width="990px" height="400px"/></div>
+	<div id="slide_front"><img src="images1.jpg" alt="slide1" width="990px" height="400px"/></div>
+
+	<div id="controls">
+
+		<div id="arrow_wrapper">
+			<div id="left" onclick="prevSlide()"></div>
+			<div id="right" onclick="nextSlide()"></div>
+		</div>
+		<div id="jumpers">
+			<ul>
+				<li id="1" onclick="jump(1)" class="current"></li>
+				<li id="2" onclick="jump(2)"></li>
+				<li id="3" onclick="jump(3)"></li>
+				<li id="4" onclick="jump(4)"></li>
+				<li id="5" onclick="jump(5)"></li>
+			</ul>
+		</div>
+	</div>
+</section>
+<section id="loading"><img src="loading.gif" alt="loading..." /></section>
+
+<footer>
+	<section id="wish_appender">
+		<p class="button" id="add_your_wish">    Add your wish    </p>
+	</section>
+	<div id="wish_form">
+			<form action="#">
+                <table>
+					<tr>
+                		<td class="wish_form_content_1">Name:</td>
+                		<td><input type="text" class="wish_form_content_2" id="name" /></label></td>
+                	</tr>
+                  	<tr>
+                  		<td class="wish_form_content_1">Message:</td>
+                  		<td><textarea id="text" placeholder="Kindly drop your message here" class="wish_form_content_2"></textarea></td>
+                 	</tr>
+                 	<tr>
+				 		<td></td>
+				 		<td> <input type="reset" value="  CLEAR  "  id="clear" class="button" />  
+				 			<input type="submit" value="  SUBMIT  "  id="submit" class="button" />  </td>
+				 	</tr>
+				 </table>
+              </form>
+        </div>
+	<section id="quotes">
+		<p id="wish">Wishing you a very happy birthday!</p>
+		<p id="wish_author">&mdash;<span id="author">Ayo</span></p>
+	</section>
+</footer>
+</body>
+</html>
