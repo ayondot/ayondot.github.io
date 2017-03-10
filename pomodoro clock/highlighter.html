@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Highlighter</title>
+	</head>
+		<style type="text/css">
+			textarea{
+				height: 40px;
+				width: 400px;
+			}
+
+			.green{
+				color: green;
+			}
+		</style>
+	<body>
+		
+		<textarea></textarea>
+		<p id="highlighted"><p>
+		<script src="jquery.js"></script>
+		
+		<script>
+			$(function(){
+				 $('textarea').on('keyup',function(){
+				 	var compos = $(this).val();
+				 	var newcompos = compos.replace(/(Ayo|Yemi|Odun)/gi,'<span class="green">'+'$1'+'</span>');
+				 	 //newcompos = compos.replace('Ayo','<span class="green">Ayo</span>');
+				 	$("#highlighted").html(newcompos);
+				 });	 
+			})
+		</script>
+	</body>
+</html>

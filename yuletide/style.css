@@ -1,37 +1,126 @@
 
-@import url('https://fonts.googleapis.com/css?family=Tangerine|Inconsolata');
+@import url('https://fonts.googleapis.com/css?family=Tangerine|Inconsolata|Mirza');
 
 body, html {
   background-color: #000;
   background-image: url("xmaslight.gif");
   background-repeat: repeat;
-  
 }
 
 h2 {
-  font-family: 'Tangerine',"Lucida Sans",serif;
+  font-family: 'Tangerine',cursive,serif;
   color: #fff;
   font-size: 3.5em;
   text-shadow: 4px 4px 4px #aaa;
   opacity: 0.9;
 }
 
-figure#tree {
- margin-right: 1%
+img{
+  height: 200px;
+  width: 200px;
 }
 
-figure#santa {
-   margin-left: -4%
-}
+.space_up{ margin-top: 15px; }
 
-p#wish{
-  color: #FFF;
+.wish{
+  margin: 10px;
+  color: #b69797;
   font-size: 2em;
-  font-family: Inconsolata,"Calibri",sans-serif;
+  font-family: 'Mirza',cursive,sans-serif;
+}
+.fa-heart{
+  margin: 0 5px;
+  color: #c53f3f;
+  margin-left: 8px;
+}
+
+#komolafes{
+  font-size: 1.7em;
+  color: #6cd26c;
+  text-shadow: 2px 4px 10px #e63434;
+}
+
+#footer{
+  display: flex;
+}
+
+#drum{ width: 50px; height: 50px; }
+
+#yoruba, .typed-cursor{
+  color: #fff;
+  font-size: 1.5em;
+  padding-top: 10px;
+  margin-left: 10px;
+  font-family: 'Inconsolata',cursive,sans-serif;
+}
+
+#sign{
+  margin-left: 10px;
+  font-family: 'Tangerine',cursive,serif;
+  color: #fff;
+}
+
+#my_name{
+  letter-spacing: 5px;
+  font-size: 1.3em;
+}
+
+/* animate css overwrite */
+
+.animated {
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+/* aniview css custom styles */
+
+.fast {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+}
+.slow {
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+.reallyslow {
+    -webkit-animation-duration: 6s;
+    animation-duration: 6s;
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+}
+
+/* typed.js css blinking cursor */
+
+.typed-cursor{
+    color: #FFF;
+    font-size: 2em;
+    opacity: 1;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
 }
 
 @media only screen and (max-width: 750px){
 
 }
-
-

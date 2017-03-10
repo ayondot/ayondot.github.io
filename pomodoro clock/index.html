@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pomodoro Clock</title>
+		<link href='https://fonts.googleapis.com/css?family=Pacifico|Merienda+One' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="flipclock.css">
+		<style>
+
+			@import url('https://fonts.googleapis.com/css?family=Pacifico|Merienda+One');
+
+			* {
+				  margin: 0;
+				  font-family: cursive;
+				  user-select: none;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+			}
+
+			.flip-clock-divider .flip-clock-label { display: none; }
+			#clock_wrapper{ clear: both; }
+			.your-clock{ 
+				width: 25%;
+				margin: 0 30%;
+			}
+
+			.settings{
+				width: 30%;	
+			}
+			.settings_value{ font-size: 2em; }
+			
+			.first{ margin-left: 20px ; }
+
+			.operator{ 
+				font-size: 1.4em;
+				cursor: pointer; 
+			}
+
+			#wrapper{
+				margin: 0 auto;
+				width: 90%;
+			}
+			
+			h1 {
+				  display: block;
+				  background-color: #333333;
+				  margin: 0 auto;
+				  margin-bottom: 10px;
+				  color: white;
+				  text-align: center;
+				  font-family: 'Pacifico';
+				  font-size: 5em;
+			}
+			h2{
+				 margin: 1% 37%;
+				 font-family: 'Merienda One', Helvetica, cursive;
+				 font-size: 2em;
+  				 color: rgba(0,0,0,0.7);
+			}
+
+			button{
+				margin-right: 5px;
+			}
+			.button-0 {
+			    padding: 10px 15px;
+			    margin: 0px 10px 10px 0px;
+			    border-radius: 10px;
+			    color: #FFF;
+			    background-color: #62676B;
+			    border-bottom: 5px solid #2980B9;
+			    cursor: pointer;
+			    /* Animation */
+			    transition: all 0.1s;
+			    -webkit-transition: all 0.1s;
+			}
+
+			.button-0:hover, 
+			.button-0:focus {
+			    text-decoration: none;
+			    color: #fff;
+			}
+
+			.button-0:active {
+			    transform: translate(0px,5px);
+			    -webkit-transform: translate(0px,5px);
+			    border-bottom: 1px solid;
+			}
+
+			.blink_me {
+				-webkit-animation-name: blinker;
+				-webkit-animation-duration: 1s;
+				-webkit-animation-timing-function: linear;
+				-webkit-animation-iteration-count: infinite;
+				-moz-animation-name: blinker;
+				-moz-animation-duration: 1s;
+				-moz-animation-timing-function: linear;
+				-moz-animation-iteration-count: infinite;
+				animation-name: blinker;
+				animation-duration: 1s;
+				animation-timing-function: linear;
+				animation-iteration-count: infinite;
+				color: #B32C2C;
+			}
+
+			@-moz-keyframes blinker {  
+			    0% { opacity: 1.0; }
+			    50% { opacity: 0.0; }
+			    100% { opacity: 1.0; }
+			}
+
+			@-webkit-keyframes blinker {  
+			    0% { opacity: 1.0; }
+			    50% { opacity: 0.0; }
+			    100% { opacity: 1.0; }
+			}
+
+			@keyframes blinker {  
+			    0% { opacity: 1.0; }
+			    50% { opacity: 0.0; }
+			    100% { opacity: 1.0; }
+			}
+
+			#break{ float: left; }
+			#session{ float: right; }
+			#start{ margin:  10px 5px 10px 379px;}
+			#test{
+				width: 40px;
+				height: 400px;
+				background-color: #62676B;
+				border-radius: 20px;
+				float: right;
+				position: absolute;
+				top: 187px;
+				right: 150px;
+			}
+			#test2{
+				width: 36px;
+				height: 360px;
+				background-color: #2980B9;
+				margin: 0 auto;
+				position: absolute;
+				bottom: 20px;
+				right: 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Pomodoro Timer</h1>
+		<div id="wrapper">
+			<div id="timer">
+				<div class="settings" id="break">
+					<p>BREAK LENGTH</p>
+					<span id="break_decrement" class="operator first"> - </span>
+					<span id="break_value" class="settings_value"> 5 </span>
+					<span id="break_increment" class="operator"> + </span>
+				</div>
+				<div class="settings" id="session">
+					<p>SESSION LENGTH</p>
+					<span id="session_decrement" class="operator first"> - </span>
+					<span id="session_value" class="settings_value"> 25 </span>
+					<span id="session_increment" class="operator"> + </span>
+				</div>
+				
+				<div id="clock_wrapper">
+					<h2>Session</h2>
+					<div class="your-clock"></div>
+					<button id="start" class="button-0"> START </button>
+					<button id="stop" class="button-0"> STOP </button>
+					<button id="reset" class="button-0"> RESET </button>
+				</div>
+			</div>
+
+			<div id="test"><div id="test2"></div></div>
+		</div>
+		
+		<script src="jquery.js"></script>
+		<script src="flipclock.js"></script>
+		<script>
+		$(function(){
+			var breaktime,
+				sessiontime,
+				flipworktime,
+				intervalheights;
+
+			var clock = $('.your-clock').FlipClock({
+			// ... your options here
+				autoStart : false,
+				clockFace: 'MinuteCounter',
+		        countdown: true
+			});
+
+			var test2 = document.getElementById('test2');
+			var audio = new Audio('http://scambuster.info/audio/time_up.wav');
+
+
+
+			function init(){
+				test2.style.height = "0px";
+				$('h2').removeClass('blink_me');
+				$('h2').css({"margin-left":"37%"});
+				$('h2').text("Session");
+
+				sessiontime = 25;
+				$('#session_value').html(sessiontime);
+				
+				breaktime = 5;
+				$('#break_value').html(breaktime);
+				
+				$('.settings').css({"pointer-events":"auto"});
+				
+				flipworktime = 60 * sessiontime;
+				clock.setTime(flipworktime);
+				clock.stop();
+			}
+
+			init();
+
+			$('#break_increment').on('click',function(){
+				breaktime = parseInt($('#break_value').html());
+				breaktime++;
+				$('#break_value').html(breaktime);
+			});		
+
+			$('#break_decrement').on('click',function(){
+				breaktime = parseInt($('#break_value').html());
+				breaktime--;
+				$('#break_value').html(breaktime);
+			});		
+
+			$('#session_increment').on('click',function(){
+				sessiontime = parseInt($('#session_value').html());
+				sessiontime++;
+				$('#session_value').html(sessiontime);
+				flipworktime = 60 * sessiontime;
+				clock.setTime(flipworktime);
+			});		
+
+			$('#session_decrement').on('click',function(){
+				sessiontime = parseInt($('#session_value').html());
+				sessiontime--;
+				$('#session_value').html(sessiontime);
+				flipworktime = 60 * sessiontime;
+				clock.setTime(flipworktime);
+			});		
+
+
+			$('#start').on('click',function(){
+				sessiontime = parseInt($('#session_value').html());
+				intervalheights = 360/flipworktime;
+
+				test2.style.height = "0px";
+				$('.settings').css({"pointer-events":"none"});
+
+				setTimeout(function(){
+					test2.style.height = "0px";
+					$('h2').text("Break!");
+					$('h2').addClass('blink_me');
+					breaktime = parseInt($('#break_value').html());
+					flipworktime = 60 * breaktime;
+					intervalheights = 360/flipworktime;
+					clock.setTime(flipworktime);
+					audio.play();
+					setTimeout(function () { audio.currentTime = 0; audio.play(); }, 1000);
+					
+					setTimeout(function () { 
+						$('h2').removeClass('blink_me');
+						$('h2').css({"margin-left":"30%"});
+						$('h2').text("End of pomodoro!");
+					}, flipworktime * 1000);
+
+					clock.start(function(){
+						test2.style.height = parseFloat(test2.style.height) + intervalheights + 'px';
+					});
+
+				}, flipworktime * 1000);
+
+				audio.play();
+
+				clock.start(function() {
+					// this (optional) callback will fire each time the clock flips
+					test2.style.height = parseFloat(test2.style.height) + intervalheights + 'px';
+				});	
+			});
+
+			$('#stop').on('click',function(){
+				clock.stop();	
+				$('.settings').css({"pointer-events":"auto"});
+			});
+
+			$('#reset').on('click',function(){
+				init();
+			});	
+				
+		})
+		</script>
+	</body>
+</html>
